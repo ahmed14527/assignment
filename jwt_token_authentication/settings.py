@@ -40,8 +40,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'members.apps.MembersConfig',
+    'store',
+    'drf_yasg',
+    "drf_spectacular",
 ]
-AUTH_USER_MODEL = 'members.User'
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -125,3 +130,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'members.User'
